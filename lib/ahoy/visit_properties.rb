@@ -71,7 +71,7 @@ module Ahoy
 
     def request_properties
       {
-        ip: request.remote_ip,
+        ip: request.env['HTTP_CF_CONNECTING_IP'] || request.remote_ip,
         user_agent: request.user_agent,
         referrer: referrer,
         landing_page: landing_page,
